@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import classes from "./auto-form.module.css";
+import classes from "./auth-form.module.css";
 
 const createUser = async (email, password) => {
   const response = await fetch("/api/auth/signup", {
