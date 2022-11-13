@@ -1,7 +1,7 @@
-export default function Home() {
-  return (
-    <div>
-      <h1>Hello</h1>
-    </div>
-  );
+import StartingPageContent from "../components/starting-page/starting-page";
+
+function HomePage() {
+  return <StartingPageContent />;
 }
+
+export default HomePage;
