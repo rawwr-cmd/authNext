@@ -5,7 +5,7 @@ import { verifyPassword } from "../../../lib/auth";
 
 export default NextAuth({
   session: {
-    jwt: true,
+    strategy: "jwt",
   },
   // Configure one or more authentication providers
   providers: [

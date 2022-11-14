@@ -48,8 +48,11 @@ const AuthForm = () => {
         email: enteredEmail,
         password: enteredPassword,
       });
-
-      console.log(result);
+      // console.log(result);
+      //if we have no error
+      if (!result.error) {
+        //set jwt token(some auth state)
+      }
       //in case of not login i.e signup
     } else {
       try {
