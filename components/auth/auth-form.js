@@ -1,5 +1,8 @@
 import { useState, useRef } from "react";
 import { signIn } from "next-auth/react";
+
+import { useRouter } from "next/router";
+
 import classes from "./auth-form.module.css";
 
 const createUser = async (email, password) => {
@@ -16,6 +19,9 @@ const createUser = async (email, password) => {
   });
 
   const data = await response.json();
+
+  console.log(data);
+
   if (!response.ok) {
     throw new Error(data.message || "Something went wrong!");
   }
@@ -27,6 +33,8 @@ const AuthForm = () => {
   //   console.log(isLogin);
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
+
+  const router = useRouter();
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -49,9 +57,10 @@ const AuthForm = () => {
         password: enteredPassword,
       });
       // console.log(result);
-      //if we have no error
+      //if we have no error(signing in successed)
       if (!result.error) {
         //set jwt token(some auth state)
+        router.replace("/profile");
       }
       //in case of not login i.e signup
     } else {
